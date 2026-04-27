@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Dashboard - QuickCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .animate-spin { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Mobile Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 z-50 md:hidden">
+        <div class="flex items-center justify-around">
+            <button class="flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-green-600">
+                <i class="fas fa-home w-5 h-5"></i>
+                <span class="text-xs font-medium">Dashboard</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-gray-500">
+                <i class="fas fa-box w-5 h-5"></i>
+                <span class="text-xs font-medium">Orders</span>
+            </button>
+            <button class="flex flex-col items-center gap-1 px-3 py-2 rounded-lg text-gray-500">
+                <i class="fas fa-user w-5 h-5"></i>
+                <span class="text-xs font-medium">Profile</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <div class="hidden md:flex md:flex-col md:w-64 md:bg-white md:border-r md:border-gray-200 md:fixed md:h-screen">
+        <div class="p-4 border-b border-gray-200">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-motorcycle text-green-600"></i>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-gray-900">Rider Panel</h2>
+                    <p class="text-xs text-gray-600">Delivery Management</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 p-4">
+            <nav class="space-y-2">
+                <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-green-50 text-green-600">
+                    <i class="fas fa-home w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </button>
+                <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+                    <i class="fas fa-box w-5 h-5"></i>
+                    <span class="font-medium">Orders</span>
+                </button>
+                <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+                    <i class="fas fa-user w-5 h-5"></i>
+                    <span class="font-medium">Profile</span>
+                </button>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-gray-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-900">Dhruv</p>
+                    <p class="text-xs text-gray-600">Bike</p>
+                </div>
+            </div>
+            <button class="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-green-100 text-green-700 border border-green-200 mb-2">
+                <div class="w-2 h-2 rounded-full bg-green-600"></div>
+                Online
+            </button>
+            <button class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-red-600 hover:bg-red-50">
+                <i class="fas fa-sign-out-alt w-4 h-4"></i>
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="min-h-screen bg-gray-50 md:ml-64">
+        <div class="p-4 md:p-6">
+            <!-- Header -->
+            <div class="mb-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-900">Hello, Dhruv 👋</h1>
+                        <p class="text-gray-600 mt-1">Welcome back to your delivery dashboard</p>
+                    </div>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-xl font-medium bg-green-100 text-green-700 border border-green-200">
+                        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+                        Online
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 font-medium">Total Deliveries Today</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">12</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
+                            <i class="fas fa-box w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 font-medium">Earnings Today</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">₹2,450</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-green-50 text-green-600 border border-green-200">
+                            <i class="fas fa-rupee-sign w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 font-medium">Active Orders</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">3</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-orange-50 text-orange-600 border border-orange-200">
+                            <i class="fas fa-clock w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Location Section -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-green-600 w-5 h-5"></i>
+                        <h2 class="text-lg font-semibold text-gray-900">Live Location</h2>
+                    </div>
+                    <button class="flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm">
+                        <i class="fas fa-location-crosshairs w-4 h-4"></i>
+                        Update Location
+                    </button>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm text-gray-600">Latitude:</span>
+                        <span class="text-sm font-mono text-gray-900">19.076000</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-sm text-gray-600">Longitude:</span>
+                        <span class="text-sm font-mono text-gray-900">72.877700</span>
+                    </div>
+                    <div class="text-xs text-gray-500 mt-2">Last updated: Just now</div>
+                </div>
+            </div>
+
+            <!-- Earnings Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-chart-line text-green-600 w-5 h-5"></i>
+                        <h2 class="text-lg font-semibold text-gray-900">Today's Earnings</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Base Earnings</span>
+                            <span class="font-semibold text-gray-900">₹2,000</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Bonus</span>
+                            <span class="font-semibold text-green-600">+₹450</span>
+                        </div>
+                        <div class="border-t pt-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium text-gray-900">Total</span>
+                                <span class="text-xl font-bold text-green-600">₹2,450</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-rupee-sign text-blue-600 w-5 h-5"></i>
+                        <h2 class="text-lg font-semibold text-gray-900">Weekly Earnings</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">This Week</span>
+                            <span class="font-semibold text-gray-900">₹16,800</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Last Week</span>
+                            <span class="font-semibold text-gray-900">₹14,200</span>
+                        </div>
+                        <div class="border-t pt-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium text-gray-900">Growth</span>
+                                <span class="text-sm font-bold text-green-600">+18.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile padding -->
+    <div class="md:hidden h-16"></div>
+
+    <script>
+        // Mock functionality
+        document.querySelector('.bg-green-600').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin w-4 h-4"></i> Updating...';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-location-crosshairs w-4 h-4"></i> Update Location';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

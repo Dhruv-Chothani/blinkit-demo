@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 33% 97%;
+    --foreground: 220 20% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 220 20% 14%;
+
+    --secondary: 45 60% 94%;
+    --secondary-foreground: 220 20% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 142 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --brand: 45 100% 51%;
+    --brand-dark: 42 100% 42%;
+    --brand-light: 45 100% 96%;
+    --success: 142 60% 45%;
+    --success-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 45 20% 95%;
+    --card: 220 20% 12%;
+    --card-foreground: 45 20% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 45 20% 95%;
+    --primary: 45 100% 51%;
+    --primary-foreground: 220 20% 14%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 45 20% 95%;
+    --muted: 220 14% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 142 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 45 100% 51%;
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 45 100% 51%;
+    --sidebar-primary-foreground: 220 20% 14%;
+    --sidebar-accent: 220 20% 14%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 45 100% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Make all interactive elements properly clickable */
+  button, [role="button"], a, input[type="button"], input[type="submit"], .btn {
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  button:hover, [role="button"]:hover, a:hover, input[type="button"]:hover, input[type="submit"]:hover, .btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  button:active, [role="button"]:active, a:active, input[type="button"]:active, input[type="submit"]:active, .btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Enhanced hover states for specific components */
+  .hover-lift:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  /* Click feedback */
+  .click-feedback {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .click-feedback::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .click-feedback:active::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Better focus states */
+  button:focus-visible, [role="button"]:focus-visible, a:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  
+  /* Card hover effects */
+  .card-hover:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+  
+  /* Icon button hover */
+  .icon-btn:hover {
+    background-color: var(--accent) !important;
+    color: var(--accent-foreground) !important;
+  }
+  
+  /* Table row hover */
+  .table-row-hover:hover {
+    background-color: var(--muted) !important;
+    cursor: pointer !important;
+  }
+  
+  /* Tab hover */
+  .tab-trigger:hover {
+    background-color: var(--secondary) !important;
+  }
+}
