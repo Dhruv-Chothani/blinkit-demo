@@ -102,29 +102,6 @@ const Index = () => (
         </div>
       </section>
 
-      {/* Fresh Tomatoes Banner */}
-      <div className="rounded-2xl overflow-hidden shadow-sm bg-gradient-to-r from-red-50 to-orange-50 border border-red-100">
-        <div className="flex flex-col md:flex-row items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-4 mb-3 md:mb-0">
-            <img 
-              src="https://cdn.britannica.com/16/187216-050-CB57A09B/tomatoes-tomato-plant-Fruit-vegetable.jpg?w=300" 
-              alt="Fresh Tomatoes" 
-              className="w-20 h-20 rounded-lg object-cover shadow-sm"
-            />
-            <div>
-              <h3 className="text-xl md:text-2xl font-extrabold text-red-600">Fresh & Juicy Tomatoes</h3>
-              <p className="text-sm text-red-700/80 font-medium">Farm-fresh, vine-ripened tomatoes delivered daily</p>
-            </div>
-          </div>
-          <Link 
-            to="/category/vegetables" 
-            className="bg-red-600 text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-red-700 transition-colors shadow"
-          >
-            Shop Now
-          </Link>
-        </div>
-      </div>
-
       {/* Trending Banner */}
       <div className="rounded-2xl overflow-hidden shadow-sm" style={{ background: "linear-gradient(135deg, hsl(270 60% 50%), hsl(280 70% 60%))" }}>
         <div className="flex flex-col items-center justify-center px-6 py-5 text-center gap-2">
